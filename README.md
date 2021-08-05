@@ -160,7 +160,9 @@ bus.trigger('testEvent')
  * --callback: callback1
  * ----event: testEvent2
  * ------callback: callback2
- */ 
+ * 
+ * 注意，bus.trigger 应该可以执行多次，每一次trigger 都应该得到一个独立的事件栈。
+ */
 ```
 
 难度三：增加对 async callback 的支持，并要求仍然能够正确打印出调用栈。增加对无线循环调用事件的判断。
