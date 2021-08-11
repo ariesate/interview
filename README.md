@@ -95,7 +95,7 @@ output a table that contains just the results from the valid lines.
 
 # 3 Create Tree from flat data
 
-将输入的数组组装成一颗树状的数据结构，时间复杂度越小越好。要求程序具有侦测错误输入的能力。**注意输入数组是无序的**
+将输入的数组组装成一颗树状的数据结构，时间复杂度越小越好。要求程序具有侦测错误输入的能力。**注意输入数组是无序的**。
 
 示例 Input:
 
