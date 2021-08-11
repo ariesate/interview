@@ -76,9 +76,9 @@ output a table that contains just the results from the valid lines.
 
 # 2 Ordered Link List
 
-根据输入的数组中每项的 before/after/first/last 规则，输出一个新排好序的数组或者链表。要求，多解的情况可以只求一解，如果无解要求程序能检测出来。
+根据输入的数组中每项的 before/after/first/last 规则，输出一个新排好序的数组或者链表。要求，多解的情况可以只求一解，如果无解要求程序能检测出来。**注意输入数组是无序的**。
 
-Input:
+示例 Input:
 
 ```
 [
@@ -95,9 +95,9 @@ Input:
 
 # 3 Create Tree from flat data
 
-将输入的数组组装成一颗树状的数据结构，时间复杂度越小越好。要求程序具有侦测错误输入的能力。
+将输入的数组组装成一颗树状的数据结构，时间复杂度越小越好。要求程序具有侦测错误输入的能力。**注意输入数组是无序的**
 
-Input:
+示例 Input:
 
 ```
 [
@@ -142,7 +142,7 @@ bus.listen('testEvent', (...argv) => {
 bus.trigger('testEvent', 1, 2)
 ```
 
-难度二：在 listener 中可以继续触发事件，要求在总线对象内部要保持正确的事件调用栈，并能提供接口打印出来，例如:
+难度二：在 listener 中可以继续触发事件，要求在总线对象内部要保持正确的事件调用栈(树形)，并能提供接口打印出来，例如:
 ```javascript
 bus.listen('testEvent', function callback1(){
   // do something
