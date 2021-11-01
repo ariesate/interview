@@ -76,18 +76,18 @@ output a table that contains just the results from the valid lines.
 
 # 2 Ordered Link List
 
-根据输入的数组中每项的 before/after/first/last 规则，输出一个新排好序的数组或者链表。要求，多解的情况可以只求一解，如果无解要求程序能检测出来。**注意输入数组是无序的**。
+根据输入的数组中每项的 before/after/first/last 规则，输出一个新排好序的数组或者链表。要求，多解的情况可以只求一解，如果无解要求程序能检测出来。**注意输入数组是无序的**，before 和 after 规则不需要**紧邻**着指定的元素，只要满足是 before/after 即可。
 
 示例 Input:
 
 ```
 [
     {id: 1},
-    {id: 2, before: 1},
-    {id: 3, after: 1},
+    {id: 2, before: 1}, // 这里 before 的意思是自己要排在 id 为 1 的元素前面
+    {id: 3, after: 1},  // 这里 after 的意思是自己要排在 id 为 1 元素后面 
     {id: 5, first: true},
     {id: 6, last: true},
-    {id: 7, after: 8},
+    {id: 7, after: 8}, // 这里 after 的意思是自己要排在 id 为 8 元素后面
     {id: 8},
     {id: 9},
 ]
