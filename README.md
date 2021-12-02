@@ -175,6 +175,7 @@ bus.listen('testEvent', async function callback1(){
   return new Promise((resolve) => {
     setTimeout(() => {
           this.trigger('asyncEvent1')
+          resolve()
     }, 1000)
   })
 })
@@ -189,6 +190,7 @@ bus.listen('testEvent2', async function callback3(){
   return new Promise((resolve) => {
     setTimeout(() => {
           this.trigger('asyncEvent3')
+          resolve()
     }, 2000)
   })
 })
