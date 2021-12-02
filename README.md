@@ -167,3 +167,44 @@ bus.trigger('testEvent')
 
 难度三：增加对 async callback 的支持，并要求仍然能够正确打印出调用栈。增加对无限循环调用事件的判断。
 注意要求是调用 callback 时，如果碰到 async callback，正常调用，不要阻塞。在 async callback 中再触发的 event 要在事件栈中的正确位置。
+
+```javascript
+
+bus.listen('testEvent', async function callback1(){
+  // do something
+  return new Promise((resolve) => {
+    setTimeout(() => {
+          this.trigger('asyncEvent1')
+    }, 1000)
+  })
+})
+
+bus.listen('testEvent', async function callback2(){
+  // do something
+  this.trigger('testEvent2')
+})
+
+bus.listen('testEvent2', async function callback3(){
+  // do something
+  return new Promise((resolve) => {
+    setTimeout(() => {
+          this.trigger('asyncEvent3')
+    }, 2000)
+  })
+})
+
+/*
+ * 期望得到的结果：
+ * event: testEvent
+ *   |-callback: callback1
+ *      |-event: asyncEvent1
+ *   |-callback: callback2
+ *      |-event: testEvent2
+ *          |-callback: callback3
+ *              |-event: asyncEvent3
+ * 
+ * 注意，bus.trigger 应该可以执行多次，每一次trigger 都应该得到一个独立的事件栈。
+ */
+
+```
+
